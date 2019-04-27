@@ -1,0 +1,27 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='js/recorder.js')}}"></script>
+{{super()}}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1>HUMAN MOVEMENT RECOGNISER</h1>
+    </div>
+  </div>
+  <div class="container">
+    <div id="recorder" style="text-align: center; margin-bottom: 2rem;">
+      <button id="record">Record</button>
+      <button id="stop">Stop</button>
+      <a id="download"></a>
+    </div>
+  </div>
+  <div class="container">
+    <img id="video" src="{{ url_for('video_viewer') }}" style="display: block; margin: 0 auto;">
+  </div>
+  <div class="container" style="text-align: center; margin-top: 2rem;">
+    <a href="{{url_for('get_gesture')}}" type="button" class="btn btn-danger">Generate MEI_MHI</a>
+  </div>
+{% endblock %}
